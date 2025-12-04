@@ -25,4 +25,10 @@ class ProductPage(BasePage):
         cost_product = self.browser.find_element(*ProductPageLocators.COST_PRODUCT).text
         cost_product_in_message = self.browser.find_element(*ProductPageLocators.COST_PRODUCT_IN_MESSAGE).text
         assert cost_product == cost_product_in_message, "Цена товара не совпадает"
+        
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.MESSAGE_ADDING_TO_CART), "Сообщение о добавлении товара не должно было появиться"
+        
+    def should_disappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.MESSAGE_ADDING_TO_CART), "Сообщение о добавлении товара не исчезло, хотя должно было исчезнуть"
     
