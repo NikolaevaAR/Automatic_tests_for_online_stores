@@ -6,7 +6,7 @@ import pytest
 
 link = "http://selenium1py.pythonanywhere.com/"
 
-# @pytest.mark.new    
+
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page = MainPage(browser, link)
     page.open()
@@ -15,7 +15,7 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     basket_page.should_be_not_items_in_the_basket()
     basket_page.should_be_a_text_the_basket_is_empty()
     
-@pytest.mark.login_guest
+
 class TestLoginFromMainPage():
     
     def test_guest_can_go_to_login_page(self, browser):
