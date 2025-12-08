@@ -61,3 +61,6 @@ class BasePage():
         except TimeoutException:
             return False
         return True
+        
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "Иконка пользователя отсутствует, пользователь не авторизован"
